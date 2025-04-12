@@ -1,6 +1,8 @@
 // import React from 'react'
 import { useState } from "react"
 import axios from "axios"
+import styles from "../styles/searchPlace.module.css"
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -18,10 +20,16 @@ export default function SearchPlace({setPlace}: Props) {
     const [inputValue,setInputValue] = useState<string>("")
     const [automplete,setAutocomplete] = useState<Place[] | null>(null)
     
+    const navigate = useNavigate()
 
     function handleInputChange(event:React.ChangeEvent<HTMLInputElement>){
         setInputValue(event.target.value)
         getAutocomplete()
+    }
+
+    function choosePlace(place:Place){
+        setPlace(place);
+        navigate("/");
     }
 
     const getAutocomplete = async() => {
@@ -56,7 +64,11 @@ export default function SearchPlace({setPlace}: Props) {
         <input type="text" value={inputValue} onChange={handleInputChange}/>
         {(automplete) &&
             automplete.map((a:Place,index:number)=>(
-                <p key={index} onClick={()=>setPlace(a)}>{a.name}</p>
+                <p key={index} 
+                    onClick={()=>choosePlace(a)}
+                    className={styles.suggestion}>
+                    {a.name}
+                </p>
             ))
         }
     </>

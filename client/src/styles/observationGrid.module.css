@@ -1,0 +1,27 @@
+.gridObs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:10px;
+    margin:50px 0;
+}
+
+.gridObs * {
+    width:130px;
+    height:130px;
+    background-size: cover;
+    position: relative;
+}
+
+.gridObs p {
+    padding:2px;
+    color: black;
+    background-color: white;
+    height: fit-content;
+    width: 80%;
+    position: absolute;
+    bottom:0px;
+    left: 10%;
+    font-size: 0.8em;
+    /* left:50%;
+    transform: translateX(-50%); */
+}

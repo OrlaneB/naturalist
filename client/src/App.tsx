@@ -2,6 +2,7 @@ import './App.css'
 import SearchPlace from './components/searchPlace'
 import ObservationGrid from './components/ObservationGrid'
 import { useState } from 'react'
+import {Routes,Route} from "react-router-dom"
 
 
 type Place = {
@@ -17,15 +18,11 @@ function App() {
   return (
     <>
       <h1>Naturalist</h1>
-      {place &&
-        <>
-        <h2>{place.name}</h2>
-        <ObservationGrid placeId={place.id}/>
-        </>
-      }
-      {!place &&
-        <SearchPlace setPlace={setPlace}/>
-      }
+
+      <Routes>
+        <Route path='/search' element={<SearchPlace setPlace={setPlace} />}/>
+        <Route path='/' element={<ObservationGrid placeId={place?.id || null}/>}/>
+      </Routes>
       
     </>
   )
