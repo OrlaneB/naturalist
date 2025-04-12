@@ -1,6 +1,7 @@
 import './App.css'
 import SearchPlace from './components/searchPlace'
 import ObservationGrid from './components/ObservationGrid'
+import ObservationPage from './pages/observationPage'
 import { useState } from 'react'
 import {Routes,Route} from "react-router-dom"
 
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path='/search' element={<SearchPlace setPlace={setPlace} />}/>
         <Route path='/' element={<ObservationGrid placeId={place?.id || null}/>}/>
+        <Route path='/observation/:id' element={<ObservationPage/>}/>
       </Routes>
       
     </>

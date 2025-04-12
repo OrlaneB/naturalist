@@ -1,0 +1,13 @@
+.mainImage {
+    border-radius: 5px;
+    width: 100%;
+}
+
+.columns {
+    display: flex;
+    align-items: center;
+}
+
+.columns figure {
+    width:60%;
+}

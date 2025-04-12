@@ -1,13 +1,13 @@
 .gridObs {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap:10px;
+    gap:20px;
     margin:50px 0;
 }
 
 .gridObs * {
-    width:130px;
-    height:130px;
+    width:100px;
+    height:100px;
     background-size: cover;
     position: relative;
 }
@@ -19,9 +19,7 @@
     height: fit-content;
     width: 80%;
     position: absolute;
-    bottom:0px;
+    bottom:-25px;
     left: 10%;
     font-size: 0.8em;
-    /* left:50%;
-    transform: translateX(-50%); */
 }
