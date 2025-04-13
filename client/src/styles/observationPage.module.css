@@ -1,13 +1,32 @@
 .mainImage {
     border-radius: 5px;
-    width: 100%;
+    width: 200px;
 }
 
 .columns {
     display: flex;
     align-items: center;
+    margin: 50px 0;
+    justify-content: center;
 }
 
-.columns figure {
+/* .columns figure {
     width:60%;
+} */
+
+.profilePicture {
+    border-radius: 50%;
+    width:50px;
+    aspect-ratio: 1;
+}
+
+.createdBy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+}
+
+figure {
+    position: relative;
 }

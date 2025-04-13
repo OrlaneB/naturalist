@@ -4,11 +4,16 @@ import { useNavigate } from "react-router-dom"
 import ObservationItem from "./ObservationItem"
 import styles from "../styles/observationGrid.module.css"
 
-type Props = {
-    placeId:number|null
+type Place = {
+    name:string,
+    id:number
 }
 
-function ObservationGrid({placeId}: Props) {
+type Props = {
+    place : Place|null
+}
+
+function ObservationGrid({place}: Props) {
 
     const [observations,setObservations] = useState<string[]|null>(null)
 
@@ -20,13 +25,11 @@ function ObservationGrid({placeId}: Props) {
 
     const getObservationsFromAPI = async()=>{
 
-        if(placeId){
+        if(place){
 
-            console.log(placeId)
+            // console.log(place.id)
 
-            const response = await axios(`https://api.inaturalist.org/v1/observations?place_id=${placeId}&order=desc&order_by=created_at`)
-
-            console.log(response)
+            const response = await axios(`https://api.inaturalist.org/v1/observations?place_id=${place.id}&order=desc&order_by=created_at`)
 
             if(response.data.results.length>0){
 
@@ -54,6 +57,7 @@ function ObservationGrid({placeId}: Props) {
 
   return (
     <div>
+        <h2>{place?.name}</h2>
         <div className={styles.gridObs}>
             {observations &&
                 observations.map((o,index:number)=>(
@@ -62,12 +66,12 @@ function ObservationGrid({placeId}: Props) {
                 ))
             }
         </div>
-        {!placeId &&
+        {!place &&
 
             <p>No observations!</p>
         }
 
-        <button onClick={()=>{navigate("/search")}}>Search for {placeId?"another":"a"} place</button>
+        <button onClick={()=>{navigate("/search")}}>Search for {place?"another":"a"} place</button>
     </div>
   )
 }

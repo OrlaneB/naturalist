@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import FavoriteButton from "./favoriteButton"
 
 type Props = {
     obs:any
@@ -19,7 +20,8 @@ export default function ObservationItem({obs}: Props) {
     <div style={{backgroundImage : `url(${imgSrc})`}}
         onClick={()=>navigate(`/observation/${obs.id}`)}
         >
-        <p>{name}</p>
+        <p>{obs.species_guess || name}</p>
+        <FavoriteButton obs={obs}/>
     </div>
   )
 }

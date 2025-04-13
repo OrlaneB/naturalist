@@ -1,0 +1,19 @@
+.favoriteButton {
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    padding: 0;
+    color: white;
+
+    position: absolute;
+    top:-10px;
+    left:-10px;
+}
+
+.favoriteButton img {
+    width:50%;
+}
+
+.favoriteButton:hover {
+    background-color: #646cff;
+}
